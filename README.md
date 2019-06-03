@@ -12,6 +12,7 @@ In this repo you'll find all the files shown during the Typescript Lunch & Learn
 
 ## TODO
 - [ ] Add sample Vue project
-- [ ] Add sample Angular project
+- [x] Add sample Angular project
+- [x] Add sample React project
 - [ ] Add links to resources
 - [ ] Add links to blog posts and video recording

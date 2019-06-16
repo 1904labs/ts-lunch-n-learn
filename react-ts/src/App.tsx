@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import './App.scss';
+import {Todos} from "./components/Todos";
 
 interface ICommentCardProps {
     name: string;
@@ -13,7 +14,8 @@ export default class App extends React.Component {
     render() {
         return (
             <div className="app">
-                <Counter />
+                <Todos title="Testing Typescript" />
+                {/*<Counter />*/}
             </div>
         )
     }

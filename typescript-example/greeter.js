@@ -9,7 +9,7 @@ var Person = /** @class */ (function () {
 }());
 var aj = new Person({
     firstName: 'AJ',
-    lastName: 'Srivastava'
+    lastName: 'Srivastava',
 });
 aj.person.age = 47;
 aj.greet(document.getElementById('target'));

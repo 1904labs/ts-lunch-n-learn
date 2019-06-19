@@ -1,20 +1,27 @@
 import React, {FunctionComponent, useState} from 'react';
 import './App.scss';
+import {WelcomeScreen, WelcomeScreenProps} from "./components/WelcomeScreen";
 // import {Todos} from "./components/Todos";
 
-// 1. Classic Class Component
-// 2. Classic Pure Component
-// 3. Const SFC
+// 1. Class Component
+// 2. Pure Component
+// 3. Stateless Functional Component
 // 4. Hooks Example Text
 // 5. Hooks Example Number
 
 export default class App extends React.Component {
     render() {
+        const WSProps: WelcomeScreenProps = {
+            title: 'Typescript Lunch & Learn - React',
+            authors: ['AJ Srivastava', 'Alex Rains'],
+            timestamp: new Date().toLocaleString()
+        };
         return (
             <div className="app">
-                <ClassComponent title="Typescript Lunch & Learn" version={0.1} />
+                <WelcomeScreen {...WSProps} />
+                {/*<ClassComponent title="Typescript Lunch & Learn" version={0.1} />*/}
                 {/*<Todos title="Testing Typescript" />*/}
-                <HookExample initialCount={47} />
+                {/*<HookExample initialCount={47} />*/}
             </div>
         )
     }
@@ -25,11 +32,23 @@ interface ClassProps {
     version: 0.1;
 }
 
-class ClassComponent extends React.Component<ClassProps, {}>{
+interface ClassState {
+    loading: boolean;
+}
+
+class ClassComponent extends React.Component<ClassProps, ClassState>{
+    state: ClassState;
+    constructor(props: ClassProps) {
+        super(props);
+        this.state = {
+            loading: true
+        }
+    }
     render() {
         return (
             <div>
                 <div>{this.props.title} - {this.props.version}</div>
+                <div>Loading: {this.state.loading ? 'True' : 'False'}</div>
                 <H3Title text="H3 Title Component" />
                 {/*<CounterClass count={0} />*/}
                 <SFCExample text="AJ Srivastava"/>
@@ -39,12 +58,12 @@ class ClassComponent extends React.Component<ClassProps, {}>{
     }
 }
 
-interface H3TTitleProps {
+interface HTitleProps {
     text: string;
 }
 
-// Class component
-class H3Title extends React.PureComponent<H3TTitleProps> {
+// Class Pure Component
+export class H3Title extends React.PureComponent<HTitleProps> {
     render() {
         return (
             <h3>{this.props.text}</h3>
@@ -52,8 +71,14 @@ class H3Title extends React.PureComponent<H3TTitleProps> {
     }
 }
 
+export const H1Title = (props: HTitleProps) => {
+    return (
+        <h1>{props.text}</h1>
+    )
+};
+
 // Stateless Functional Component as function
-const SFCExample: FunctionComponent<H3TTitleProps> = (props: H3TTitleProps) => {
+const SFCExample: FunctionComponent<HTitleProps> = (props: HTitleProps) => {
     return (
         <h3>{props.text}</h3>
     )

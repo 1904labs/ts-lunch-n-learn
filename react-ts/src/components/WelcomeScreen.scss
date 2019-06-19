@@ -1,0 +1,31 @@
+$grey-1904: rgba(36,46,51,0.95);
+$green-1904: green;
+.container {
+    .header {
+        background: $grey-1904;
+        color: white;
+        font-family: Roboto, sans-serif;
+        padding: 24px 0;
+        width: 100%;
+        .content {
+            width: 60%;
+            margin: 0 auto;
+        }
+        ul {
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+            li {
+                margin: 0;
+                padding: 0;
+            }
+        }
+    }
+    .agenda {
+        width: 60%;
+        margin: 0 auto;
+        a {
+            color: $green-1904
+        }
+    }
+}

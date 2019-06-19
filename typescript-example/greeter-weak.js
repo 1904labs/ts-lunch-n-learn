@@ -18,5 +18,7 @@ var Greeter = /** @class */ (function () {
     });
     return Greeter;
 }());
-var tj = new Greeter('AJ', 33);
-tj.greet();
+var ex = new Greeter('aj', { __ex: "why would this work" });
+ex.greet();
+var nameTs = function (name) { return name.toUpperCase(); };
+nameTs('13371');

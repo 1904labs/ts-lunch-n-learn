@@ -1,6 +1,6 @@
 class Greeter {
-    public name;
-    private _age;
+    name;
+    _age;
     constructor(name, age) {
         this.name = name;
         this.age = age;
@@ -20,6 +20,11 @@ class Greeter {
     }
 }
 
-const tj = new Greeter('AJ', 33);
+const ex = new Greeter('aj', {__ex: "why would this work"})
 
-tj.greet();
+ex.greet()
+
+const nameTs = (name) => name.toUpperCase();
+
+nameTs(1337);
+

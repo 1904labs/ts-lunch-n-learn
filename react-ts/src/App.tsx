@@ -1,8 +1,10 @@
-import React, {FunctionComponent, useState} from 'react';
+import React, {FunctionComponent, useEffect, useState} from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import './App.scss';
 import {WelcomeScreen, WelcomeScreenProps} from "./components/WelcomeScreen";
 import {TodoList} from "./components/TodoList";
+import hljs from 'highlight.js';
+import 'highlight.js/styles/agate.css';
 
 // 1. Class Component
 // 2. Pure Component
@@ -27,8 +29,13 @@ export default class App extends React.Component {
                     }} />
                     <Route path="/class" component={SampleClassComponent} />
                     <Route path="/pure" component={SamplePureComponent} />
-                    <Route path="/sfc" component={SampleSFC} />
+                    <Route path="/sfc" component={SampleFC} />
                     <Route path="/hooks" component={SampleHook} />
+                    <Route path="/effects" component={() => {
+                        return (
+                            <EffectHook title="Typescript L&L" />
+                        )
+                    }} />
                     <Route path="/todos" component={TodoList} />
                 </div>
             </Router>
@@ -37,9 +44,25 @@ export default class App extends React.Component {
 }
 
 class SampleClassComponent extends React.Component {
+    componentDidMount(): void {
+        hljs.initHighlightingOnLoad();
+    }
+
     render() {
         return (
-            <h3>Sample Component Works!</h3>
+            <div>
+                <h3>Sample Component Works!</h3>
+                <pre><code className="typescript">
+{`class SampleClassComponent extends React.Component<any, any> {
+    componentDidMount(): void {
+        hljs.initHighlightingOnLoad();
+    }
+    render() {
+        /* render function */
+    }
+}`}
+                </code></pre>
+            </div>
         )
     }
 }
@@ -56,9 +79,19 @@ class SamplePureComponent extends React.PureComponent {
     }
 }
 
-const SampleSFC: FunctionComponent = () => {
+const SampleFC: FunctionComponent = () => {
+    useEffect(() => hljs.initHighlightingOnLoad());
     return (
-        <h3>Sample Stateless Functional Component Works!</h3>
+        <div>
+            <h3>Sample Stateless Functional Component Works!</h3>
+            <pre><code className="javascript">
+{`const FunctionComponent = (props) => {
+    return (
+        <div>Sample Function Component</div>
+    )
+}`}
+            </code></pre>
+        </div>
     )
 };
 
@@ -75,3 +108,38 @@ const SampleHook: FunctionComponent = () => {
 
     )
 };
+
+interface EHProps {
+    title: string;
+}
+
+const props: EHProps = {
+    title: 'Typescript L&L'
+}
+
+const EffectHook: FunctionComponent<EHProps> = (props: EHProps) => {
+    const [count, setCount] = useState<number>(0);
+    return (
+        <div>
+            <div>{props.title}</div>
+            <div onClick={() => setCount(count + 1)}>Click Me</div>
+            <SocialCard name="AJ Srivastava" age={47} location="Maplewood"/>
+        </div>
+    )
+};
+
+interface SocialCardProps {
+    name: string;
+    age: number;
+    location: string;
+}
+
+const SocialCard = (props: SocialCardProps) => {
+    return (
+        <div className="social-card">
+            <div className="social-card-header">{props.name}</div>
+            <div className="social-card-body">{props.location} - {props.age}</div>
+        </div>
+    )
+};
+

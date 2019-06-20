@@ -49,10 +49,6 @@
             "trace"
         ],
         "no-empty": false,
-        "no-inferrable-types": [
-            true,
-            "ignore-params"
-        ],
         "no-non-null-assertion": true,
         "no-redundant-jsdoc": true,
         "no-switch-case-fall-through": true,
@@ -69,6 +65,8 @@
             "single"
         ],
         "trailing-comma": false,
+        "no-trailing-whitespace": false,
+        "variable-name": false,
         "no-conflicting-lifecycle": true,
         "no-host-metadata-property": true,
         "no-input-rename": true,

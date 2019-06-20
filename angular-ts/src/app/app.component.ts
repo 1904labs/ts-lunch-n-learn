@@ -16,9 +16,9 @@ export class AppComponent implements OnInit {
     }
 
     public ngOnInit(): void {
-        this.vehicles.push(this.createVehicle(Car));
-        this.vehicles.push(this.createVehicle(Motorcycle));
-        this.vehicles.push(this.createVehicle(Truck));
+        this.vehicles.push(this.createVehicle<Car>(Car));
+        this.vehicles.push(this.createVehicle<Motorcycle>(Motorcycle));
+        this.vehicles.push(this.createVehicle<Truck>(Truck));
     }
 
     public createVehicle<T extends Vehicle>(type: new() => T ): T {

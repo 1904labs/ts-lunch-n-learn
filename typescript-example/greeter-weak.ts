@@ -7,7 +7,7 @@ class Greeter {
     }
 
     greet() {
-        document.write(`${this.name} is ${this.age} years old`);
+        console.log(`${this.name} is ${this.age} years old`);
     }
 
 
@@ -20,11 +20,10 @@ class Greeter {
     }
 }
 
-const ex = new Greeter('aj', {__ex: "why would this work"})
+const ex = new Greeter('aj', {__ex: "why would this work"});
 
-ex.greet()
+ex.greet();
 
 const nameTs = (name) => name.toUpperCase();
 
-nameTs(1337);
-
+console.log(nameTs(1337));

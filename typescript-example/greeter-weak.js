@@ -4,7 +4,7 @@ var Greeter = /** @class */ (function () {
         this.age = age;
     }
     Greeter.prototype.greet = function () {
-        document.write(this.name + " is " + this.age + " years old");
+        console.log(this.name + " is " + this.age + " years old");
     };
     Object.defineProperty(Greeter.prototype, "age", {
         get: function () {
@@ -21,4 +21,4 @@ var Greeter = /** @class */ (function () {
 var ex = new Greeter('aj', { __ex: "why would this work" });
 ex.greet();
 var nameTs = function (name) { return name.toUpperCase(); };
-nameTs('13371');
+console.log(nameTs(1337));

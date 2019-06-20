@@ -9,7 +9,7 @@ function genIdentity(arg) {
 }
 var t = {
     name: 'AJ',
-    age: 33
+    age: 33,
 };
 var u = {
     name: {

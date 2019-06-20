@@ -1,7 +1,6 @@
-var Cats;
-(function (Cats) {
-    Cats["CAT_NUMBER_ONE"] = "Korben";
-    Cats["Callie"] = "Callie";
-    Cats["Sissy"] = "Sissy";
-})(Cats || (Cats = {}));
-console.log(Cats.CAT_NUMBER_ONE);
+var Teams;
+(function (Teams) {
+    Teams[Teams["Foxhound"] = 0] = "Foxhound";
+    Teams[Teams["Atlantic"] = 1] = "Atlantic";
+    Teams[Teams["PonyX"] = 2] = "PonyX";
+})(Teams || (Teams = {}));

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Car, Motorcycle, Truck, Vehicle } from './domain/vehicle';
 
 @Component({
     selector: 'labs-root',
@@ -9,11 +10,19 @@ export class AppComponent implements OnInit {
 
     private _title: string = 'angular-ts';
     public list: [ string, string, number ] = [ 'My', 'List', 2 ];
+    public vehicles: Vehicle[] = [];
 
     public constructor() {
     }
 
     public ngOnInit(): void {
+        this.vehicles.push(this.createVehicle(Car));
+        this.vehicles.push(this.createVehicle(Motorcycle));
+        this.vehicles.push(this.createVehicle(Truck));
+    }
+
+    public createVehicle<T extends Vehicle>(type: new() => T ): T {
+        return new type();
     }
 
     public get title() {

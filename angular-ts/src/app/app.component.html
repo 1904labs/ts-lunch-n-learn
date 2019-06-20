@@ -9,5 +9,8 @@
 <ul>
     <li *ngFor="let item of list">{{ item }}</li>
 </ul>
+<ul>
+    <li *ngFor="let vehicle of vehicles">{{ vehicle.display() }}</li>
+</ul>
 
 <router-outlet></router-outlet>

@@ -11,11 +11,14 @@
     "@types/react-router-dom": "^4.3.4",
     "highlight.js": "^9.15.8",
     "node-sass": "^4.12.0",
+    "npm-force-resolutions": "^0.0.3",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-router-dom": "^5.0.1",
     "react-scripts": "3.0.1",
-    "typescript": "3.4.5"
+    "serialize-javascript": "^2.1.2",
+    "typescript": "3.4.5",
+    "yargs-parser": "^18.1.2"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -37,5 +40,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "resolutions": {
+      "serialize-javascript": "^2.1.2",
+      "yargs-parser": "^18.1.2"
   }
 }

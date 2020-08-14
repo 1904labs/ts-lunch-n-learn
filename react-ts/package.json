@@ -16,7 +16,7 @@
     "react-dom": "^16.8.6",
     "react-router-dom": "^5.0.1",
     "react-scripts": "3.0.1",
-    "serialize-javascript": "^2.1.2",
+    "serialize-javascript": "^4.0.0",
     "typescript": "3.4.5",
     "yargs-parser": "^18.1.2"
   },
